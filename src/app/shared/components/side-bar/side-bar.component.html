@@ -1,0 +1,24 @@
+<div class="sidebar" [class.expanded]="expanded">
+  <div class="sidebar-header">
+    @if (!expanded) {
+      <button pButton icon="pi pi-bars" class="toggle-btn" (click)="toggleSidebar()"></button>
+    } @else {
+      <button pButton icon="pi pi-times" class="toggle-btn" (click)="toggleSidebar()"></button>
+    }
+  </div>
+
+  <ul class="menu">
+    <li routerLink="/cadastro-usuarios" pRipple pTooltip="Cadastro Usuários" tooltipPosition="right">
+      <i class="pi pi-user"></i>
+      @if (expanded) {
+        <span>Cadastro de Usuários</span>
+      }
+    </li>
+    <li routerLink="/bater-ponto" pRipple pTooltip="Bater Ponto" tooltipPosition="right">
+      <i class="pi pi-clock"></i>
+      @if (expanded) {
+        <span>Bater Ponto</span>
+      }
+    </li>
+  </ul>
+</div>

@@ -1,12 +1,25 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { SideBarService } from './shared/services/side-bar.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent, SideBarComponent, NgClass],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('ponto-360-angular-front');
+  private sideBarService = inject(SideBarService);
+
+  isSideBarCondensed = false;
+
+  ngOnInit(): void {
+    this.sideBarService.condensed$.subscribe((isCondensed)=> {
+      this.isSideBarCondensed = isCondensed;
+    });
+  }
 }
