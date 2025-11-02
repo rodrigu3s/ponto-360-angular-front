@@ -1,0 +1,15 @@
+.user-list {
+  &__buttons {
+    display: flex;
+  }
+}
+
+:host ::ng-deep .btn-edit .p-button-icon {
+  color: #007bff;
+}
+
+:host ::ng-deep .btn-delete .p-button-icon {
+  color: #dc3545;
+}
+
+

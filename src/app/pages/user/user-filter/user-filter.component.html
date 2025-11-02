@@ -1,0 +1,24 @@
+<p-card class="filter">
+  <div class="row col-12">
+    <div class="filter__name col-12 col-md-3">
+      <label for="username">Nome</label>
+      <input [pKeyFilter]="regexAlphaNumAccents" maxlength="255" pInputText id="username" aria-describedby="username-help"/>
+    </div>
+
+    <div class="filter__cpf col-12 col-md-3">
+      <label for="cpf">CPF</label>
+      <p-inputmask mask="999.999.999.99" placeholder="999.999.999.99" />
+    </div>
+
+    <div class="filter__buttons col-md-6">
+      <p-button label="Filtrar" icon="pi pi-search" severity="info"/>
+      <p-button label="Limpar Filtro" icon="pi pi-times" severity="danger"/>
+    </div>
+  </div>
+</p-card>
+
+
+
+
+
+

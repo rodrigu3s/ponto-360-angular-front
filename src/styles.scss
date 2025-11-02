@@ -1,8 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
-
+@import "bootstrap/dist/css/bootstrap-grid.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 body {
   padding: 0!important;
   margin: 0!important;
+  font-family: 'Roboto', sans-serif;
 }

@@ -1,0 +1,45 @@
+.user-register {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+  }
+}
+
+.user-form {
+
+  &__group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__itens {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc((100% - 2rem) / 3);
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 35px;
+    gap: 1rem;
+  }
+}
+
+:host ::ng-deep .p-inputmask input {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 767px) {
+  .user-form {
+
+    &__group {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+}

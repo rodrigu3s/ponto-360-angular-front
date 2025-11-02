@@ -1,0 +1,47 @@
+<p-card>
+  <div class="row">
+    <div class="col-12">
+      <p-table
+        [value]="customers"
+        [paginator]="true"
+        [rows]="5"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [rowsPerPageOptions]="[5, 10, 20]"
+      >
+        <ng-template #header>
+          <tr>
+            <th >Nome</th>
+            <th >CPF</th>
+            <th >E-mail</th>
+            <th >Telefone</th>
+            <th style="width:5%; white-space: nowrap;">Data nascimento</th>
+            <th >Cargo</th>
+            <th style="width:5%; white-space: nowrap;">Horário diário</th>
+            <th style="width:5%; white-space: nowrap;">Hora Início</th>
+            <th style="width:5%; white-space: nowrap;">Hora Fim</th>
+            <th style="width:2%; white-space: nowrap;">Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template #body let-customer>
+          <tr>
+              <td style="min-width: 150px;">{{ customer.fullName }}</td>
+              <td>{{ customer.cpf }}</td>
+              <td>{{ customer.email }}</td>
+              <td style="min-width: 151px;">{{ customer.phone }}</td>
+              <td>{{ customer.dateBirthday }}</td>
+              <td style="min-width: 202px;">{{ customer.role }}</td>
+              <td>{{ customer.dailyHours }}</td>
+              <td>{{ customer.startTime }}</td>
+              <td>{{ customer.endTime }}</td>
+              <td>
+                <div class="user-list__buttons">
+                  <p-button icon="pi pi-pencil" styleClass="p-button-text btn-edit" aria-label="Edit"></p-button>
+                  <p-button icon="pi pi-times" styleClass="p-button-text btn-delete" aria-label="Delete"></p-button>
+                </div>
+              </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</p-card>
