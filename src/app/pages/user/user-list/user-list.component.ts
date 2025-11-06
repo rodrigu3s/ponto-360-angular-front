@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -17,7 +17,14 @@ export class UserListComponent {
     this.customers = value;
   }
 
+  @Output() removeUserEvent: EventEmitter<string> = new EventEmitter();
+
   customers: User[] = [];
+
+  removeUser(cpf: string):void{
+   this.removeUserEvent.emit(cpf)
+  }
+
 
 }
 

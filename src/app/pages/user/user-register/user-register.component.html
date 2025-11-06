@@ -1,3 +1,4 @@
+<p-toast />
 <div class="row col-12">
   <div class="user-register__header">
     <div class="user-register__header--title">
@@ -8,30 +9,32 @@
 </div>
 
 <p-card>
-  <form class="user-form">
+  <form class="user-form" [formGroup]="registerForm">
     <div class="row">
       <div class="col-12 user-form__group">
         <div class="user-form__itens col-12">
           <label for="fullName">Nome Completo</label>
           <input
+            [pKeyFilter]="regexAlphaNumAccents"
             pInputText
             id="fullName"
             name="fullName"
             maxlength="255"
             placeholder="Digite o nome completo"
-            formControlNama="name"
+            formControlName="fullName"
           />
         </div>
 
         <div class="user-form__itens col-12">
           <label for="cpf">CPF</label>
-          <p-inputmask
+          <input
+            pInputText
             id="cpf"
             name="cpf"
             mask="999.999.999-99"
             placeholder="000.000.000-00"
             formControlName="cpf"
-          ></p-inputmask>
+          >
         </div>
 
         <div class="user-form__itens col-12">
@@ -52,18 +55,20 @@
       <div class="col-12 user-form__group">
         <div class="user-form__itens col-12 ">
           <label for="phone">Telefone</label>
-          <p-inputmask
+          <input
+            pInputText
             id="phone"
             name="phone"
             mask="(99) 99999-9999"
             placeholder="(00) 00000-0000"
             formControlName="phone"
-          ></p-inputmask>
+          >
         </div>
 
         <div class="user-form__itens col-12">
           <label for="dateBirthday">Data de Nascimento</label>
-          <p-inputmask
+          <input
+            pInputText
             mask="99/99/9999"
             placeholder="99/99/9999"
             slotChar="dd/mm/yyyy"
@@ -86,26 +91,27 @@
 
     <div class="row">
       <div class="col-12 user-form__group">
-        <div class="user-form__itens col-12 ">
+        <div class="user-form__itens col-12 md:col-4">
           <label for="role">Cargo</label>
           <p-select
-            [options]="['ADM']"
-            optionLabel="cargo"
-            placeholder="Selecione Cargo"
-            class="w-full md:w-56"
-          formControlName="rule" />
+            [options]="roles"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Selecione o cargo"
+            formControlName="role"
+            class="w-full"
+          />
         </div>
 
         <div class="user-form__itens col-12">
           <label for="dailyHours">Horas Diárias</label>
-          <p-inputMask
-            id="dailyHours"
-            name="dailyHours"
-            mask="99:99"
-            placeholder="HH:MM"
-            [slotChar]="'0'"
-            [pKeyFilter]="'int'"
+          <p-select
+            [options]="dailyHours"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Selecione as horas diárias"
             formControlName="dailyHours"
+            class="w-full"
           />
         </div>
 
@@ -126,26 +132,24 @@
       <div class="col-12 user-form__group">
         <div class="user-form__itens col-12 ">
           <label for="startTime">Hora de Início</label>
-          <p-inputMask
+          <input
+            pInputText
             id="startTime"
             name="startTime"
-            mask="99:99"
+            mask="Hh:m0"
             placeholder="HH:MM"
-            [slotChar]="'0'"
-            [pKeyFilter]="'int'"
             formControlName="startTime"
           />
         </div>
 
         <div class="user-form__itens col-12">
           <label for="endTime">Hora de Término</label>
-          <p-inputMask
+          <input
+            pInputText
             id="endTime"
             name="endTime"
-            mask="99:99"
+            mask="Hh:m0"
             placeholder="HH:MM"
-            [slotChar]="'0'"
-            [pKeyFilter]="'int'"
             formControlName="endTime"
           />
         </div>
@@ -156,14 +160,17 @@
       <p-button
         label="Cancelar"
         severity="danger"
-        icon="pi pi-times">
+        icon="pi pi-times"
+        routerLink="/usuarios">
       </p-button>
       <p-button
+        (click)="sendUserRegister()"
+        type="submit"
         label="Salvar"
         severity="info"
-        icon="pi pi-check"
-        routerLink="/usuarios">
+        icon="pi pi-check">
       </p-button>
     </div>
   </form>
 </p-card>
+

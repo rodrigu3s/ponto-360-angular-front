@@ -10,7 +10,7 @@ export class SideBarService {
 
   condensed$ = this.isOpen.asObservable();
 
-  setCondensed(value: boolean){
+  setCondensed(value: boolean): void {
     this.isOpen.next(value);
   }
 

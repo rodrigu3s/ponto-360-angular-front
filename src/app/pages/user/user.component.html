@@ -1,3 +1,4 @@
+<p-toast />
 <div class="row col-12">
   <div class="user__header">
     <div class="user__header--title">
@@ -13,4 +14,7 @@
 
 <app-user-filter (filterEvent)="doFilterUsers($event)"></app-user-filter>
 
-<app-user-list [dataSource]="dataSource"></app-user-list>
+<app-user-list
+  [dataSource]="dataSource"
+  (removeUserEvent)="onRemoveUser($event)"
+  ></app-user-list>

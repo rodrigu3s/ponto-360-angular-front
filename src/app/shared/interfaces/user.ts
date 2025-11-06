@@ -6,8 +6,8 @@ export interface User {
   dateBirthday: string;
   password: string;
   role: string;
-  avatar: string;
-  intervalTime: number;
+  avatar?: string;
+  dailyHours: number;
   startTime: string;
   endTime: string;
 }

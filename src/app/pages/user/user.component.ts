@@ -10,12 +10,16 @@ import { User } from '../../shared/interfaces/user';
 import { UserService } from '../../shared/services/http/user.service';
 import { UserFilter } from '../../shared/interfaces';
 import { identity, pickBy } from 'lodash';
+import { MessageService } from 'primeng/api';
+import { Toast, ToastModule } from 'primeng/toast';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
-  imports: [ CardModule, UserFilterComponent, UserListComponent, ButtonModule, RouterModule ],
+  imports: [ CardModule, UserFilterComponent, UserListComponent, ButtonModule, RouterModule, ToastModule, Toast ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
+  providers: [MessageService]
 })
 export class UserComponent implements OnInit, OnDestroy  {
 
@@ -29,6 +33,7 @@ export class UserComponent implements OnInit, OnDestroy  {
   private sub = new SubSink();
 
   private userService = inject(UserService);
+  private messageService = inject(MessageService);
 
   ngOnInit(): void {
     this.loadUsers();
@@ -44,14 +49,25 @@ export class UserComponent implements OnInit, OnDestroy  {
     this.loadUsers();
   }
 
+  onRemoveUser(cpf: string): void {
+    this.sub.sink = this.userService.deleteUser(cpf).subscribe({
+      next: ()=>{
+        this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Usuário removido com Sucesso!' });
+      },
+      error: (err: HttpErrorResponse) => {
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: err.error.errors[0].message });
+      }
+    });
+  }
+
   private loadUsers(): void {
     const filter = pickBy(this.filter, identity)
     this.sub.sink = this.userService.getUsers(filter).subscribe({
       next: (res: ResponseAPI<User[]>) => {
         this.dataSource = res.body;
       },
-      error: (error) => {
-        console.error('Erro ao carregar usuários:', error);
+      error: (err: HttpErrorResponse) => {
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: err.error.errors[0].message });
       }
     });
   }
