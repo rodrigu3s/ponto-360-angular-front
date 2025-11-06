@@ -1,3 +1,4 @@
+import { SubSink } from 'subsink';
 import { ResponseAPI } from './../../shared/interfaces/response-api';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { UserFilterComponent } from './user-filter/user-filter.component';
@@ -7,7 +8,8 @@ import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { User } from '../../shared/interfaces/user';
 import { UserService } from '../../shared/services/http/user.service';
-import { SubSink } from 'subsink';
+import { UserFilter } from '../../shared/interfaces';
+import { identity, pickBy } from 'lodash';
 
 @Component({
   selector: 'app-user',
@@ -16,6 +18,11 @@ import { SubSink } from 'subsink';
   styleUrl: './user.component.scss',
 })
 export class UserComponent implements OnInit, OnDestroy  {
+
+  filter: UserFilter = {
+    name: '',
+    cpf: ''
+  };
 
   dataSource: User[] = [];
 
@@ -31,8 +38,15 @@ export class UserComponent implements OnInit, OnDestroy  {
     this.sub.unsubscribe();
   }
 
+  doFilterUsers(filteParamsr: UserFilter): void {
+    const filter = JSON.parse(JSON.stringify(filteParamsr));
+    this.filter = { ...filter };
+    this.loadUsers();
+  }
+
   private loadUsers(): void {
-    this.sub.sink = this.userService.getUsers().subscribe({
+    const filter = pickBy(this.filter, identity)
+    this.sub.sink = this.userService.getUsers(filter).subscribe({
       next: (res: ResponseAPI<User[]>) => {
         this.dataSource = res.body;
       },

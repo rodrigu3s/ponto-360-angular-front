@@ -19,6 +19,7 @@
             name="fullName"
             maxlength="255"
             placeholder="Digite o nome completo"
+            formControlNama="name"
           />
         </div>
 
@@ -29,6 +30,7 @@
             name="cpf"
             mask="999.999.999-99"
             placeholder="000.000.000-00"
+            formControlName="cpf"
           ></p-inputmask>
         </div>
 
@@ -40,6 +42,7 @@
             type="email"
             name="email"
             placeholder="exemplo@email.com"
+            formControlName="email"
           />
         </div>
       </div>
@@ -54,6 +57,7 @@
             name="phone"
             mask="(99) 99999-9999"
             placeholder="(00) 00000-0000"
+            formControlName="phone"
           ></p-inputmask>
         </div>
 
@@ -62,7 +66,8 @@
           <p-inputmask
             mask="99/99/9999"
             placeholder="99/99/9999"
-            slotChar="dd/mm/yyyy" />
+            slotChar="dd/mm/yyyy"
+            formControlName="dateBirthday"/>
         </div>
 
         <div class="user-form__itens col-12">
@@ -73,6 +78,7 @@
             name="password"
             [feedback]="false"
             placeholder="Digite a senha"
+            formControlName="password"
           />
         </div>
       </div>
@@ -86,7 +92,8 @@
             [options]="['ADM']"
             optionLabel="cargo"
             placeholder="Selecione Cargo"
-            class="w-full md:w-56" />
+            class="w-full md:w-56"
+          formControlName="rule" />
         </div>
 
         <div class="user-form__itens col-12">
@@ -98,6 +105,7 @@
             placeholder="HH:MM"
             [slotChar]="'0'"
             [pKeyFilter]="'int'"
+            formControlName="dailyHours"
           />
         </div>
 
@@ -108,6 +116,7 @@
             id="avatar"
             name="avatar"
             placeholder="https://..."
+            formControlName="avatar"
           />
         </div>
       </div>
@@ -124,6 +133,7 @@
             placeholder="HH:MM"
             [slotChar]="'0'"
             [pKeyFilter]="'int'"
+            formControlName="startTime"
           />
         </div>
 
@@ -136,6 +146,7 @@
             placeholder="HH:MM"
             [slotChar]="'0'"
             [pKeyFilter]="'int'"
+            formControlName="endTime"
           />
         </div>
       </div>

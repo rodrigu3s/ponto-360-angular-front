@@ -1,20 +1,20 @@
 <p-card class="filter">
-  <div class="row col-12">
+  <form class="row col-12" [formGroup]="filterForm">
     <div class="filter__name col-12 col-md-3">
       <label for="username">Nome</label>
-      <input [pKeyFilter]="regexAlphaNumAccents" maxlength="255" pInputText id="username" aria-describedby="username-help"/>
+      <input [pKeyFilter]="regexAlphaNumAccents" maxlength="255" pInputText id="username" aria-describedby="username-help" formControlName="name"/>
     </div>
 
     <div class="filter__cpf col-12 col-md-3">
       <label for="cpf">CPF</label>
-      <p-inputmask mask="999.999.999.99" placeholder="999.999.999.99" />
+      <input pInputText aria-describedby="cpf-help" placeholder="999.999.999-99" formControlName="cpf" />
     </div>
 
     <div class="filter__buttons col-md-6">
-      <p-button label="Filtrar" icon="pi pi-search" severity="info"/>
-      <p-button label="Limpar Filtro" icon="pi pi-times" severity="danger"/>
+      <p-button label="Filtrar" icon="pi pi-search" severity="info" (click)="doFilter()"/>
+      <p-button label="Limpar Filtro" icon="pi pi-times" severity="danger" (click)="clearFilter()"/>
     </div>
-  </div>
+  </form>
 </p-card>
 
 

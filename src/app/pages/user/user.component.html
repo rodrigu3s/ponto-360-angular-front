@@ -11,6 +11,6 @@
   </div>
 </div>
 
-<app-user-filter></app-user-filter>
+<app-user-filter (filterEvent)="doFilterUsers($event)"></app-user-filter>
 
 <app-user-list [dataSource]="dataSource"></app-user-list>
