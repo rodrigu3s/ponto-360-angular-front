@@ -1,0 +1,20 @@
+@mixin display-flex ($flex-direction: null, $align-items: null, $justify-content: null, $flex-wrap: null) {
+  $param: null;
+  display: flex;
+
+  @if( $flex-direction != $param ) {
+    flex-direction: $flex-direction;
+  }
+
+  @if( $align-items != $param ) {
+    align-items: $align-items;
+  }
+
+  @if ($justify-content != $param ) {
+    justify-content: $justify-content;
+  }
+
+  @if ($flex-wrap != $param ) {
+    flex-wrap: $flex-wrap;
+  }
+}

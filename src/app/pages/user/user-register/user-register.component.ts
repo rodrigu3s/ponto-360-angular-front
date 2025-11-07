@@ -18,11 +18,12 @@ import { User } from '../../../shared/interfaces';
 import { MessageService } from 'primeng/api';
 import { Toast, ToastModule } from 'primeng/toast';
 import { HttpErrorResponse } from '@angular/common/http';
+import { IftaLabelModule } from 'primeng/iftalabel';
 
 @Component({
   selector: 'app-user-register',
   standalone: true,
-  imports: [ RouterModule, InputTextModule, SelectModule , PasswordModule, InputNumberModule, ButtonModule, CardModule, KeyFilterModule, ReactiveFormsModule, NgxMaskDirective, ToastModule, Toast],
+  imports: [ RouterModule, IftaLabelModule, InputTextModule, SelectModule , PasswordModule, InputNumberModule, ButtonModule, CardModule, KeyFilterModule, ReactiveFormsModule, NgxMaskDirective, ToastModule, Toast ],
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.scss'],
   providers: [MessageService]

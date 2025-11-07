@@ -10,159 +10,160 @@
 
 <p-card>
   <form class="user-form" [formGroup]="registerForm">
+    <h3 class="page-title">Informações Pessoais</h3>
     <div class="row">
       <div class="col-12 user-form__group">
-        <div class="user-form__itens col-12">
+        <p-iftalabel class="user-form__itens col-12">
+          <input
+          [pKeyFilter]="regexAlphaNumAccents"
+          pInputText
+          id="fullName"
+          name="fullName"
+          maxlength="255"
+          formControlName="fullName"
+          />
           <label for="fullName">Nome Completo</label>
-          <input
-            [pKeyFilter]="regexAlphaNumAccents"
-            pInputText
-            id="fullName"
-            name="fullName"
-            maxlength="255"
-            placeholder="Digite o nome completo"
-            formControlName="fullName"
-          />
-        </div>
+        </p-iftalabel>
 
-        <div class="user-form__itens col-12">
-          <label for="cpf">CPF</label>
+        <p-iftalabel class="user-form__itens col-12">
           <input
-            pInputText
-            id="cpf"
-            name="cpf"
-            mask="999.999.999-99"
-            placeholder="000.000.000-00"
-            formControlName="cpf"
+          pInputText
+          id="cpf"
+          name="cpf"
+          mask="999.999.999-99"
+          formControlName="cpf"
           >
-        </div>
+          <label for="cpf">CPF</label>
+        </p-iftalabel>
 
-        <div class="user-form__itens col-12">
-          <label for="email">E-mail</label>
+        <p-iftalabel class="user-form__itens col-12">
           <input
-            pInputText
-            id="email"
-            type="email"
-            name="email"
-            placeholder="exemplo@email.com"
-            formControlName="email"
+          pInputText
+          id="email"
+          type="email"
+          name="email"
+          formControlName="email"
           />
-        </div>
+          <label for="email">E-mail</label>
+        </p-iftalabel>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12 user-form__group">
-        <div class="user-form__itens col-12 ">
-          <label for="phone">Telefone</label>
+        <p-iftalabel class="user-form__itens col-12 ">
           <input
-            pInputText
-            id="phone"
-            name="phone"
-            mask="(99) 99999-9999"
-            placeholder="(00) 90000-0000"
-            formControlName="phone"
+          pInputText
+          id="phone"
+          name="phone"
+          mask="(99) 99999-9999"
+          formControlName="phone"
           >
-        </div>
+          <label for="phone">Telefone</label>
+        </p-iftalabel>
 
-        <div class="user-form__itens col-12">
-          <label for="dateBirthday">Data de Nascimento</label>
+        <p-iftalabel class="user-form__itens col-12">
           <input
-            pInputText
-            mask="99/99/9999"
-            placeholder="99/99/9999"
-            slotChar="dd/mm/yyyy"
-            formControlName="dateBirthday"/>
-        </div>
+          pInputText
+          mask="99/99/9999"
+          slotChar="dd/mm/yyyy"
+          formControlName="dateBirthday"/>
+          <label for="dateBirthday">Data de Nascimento</label>
+        </p-iftalabel>
+      </div>
+    </div>
 
-        <div class="user-form__itens col-12">
-          <label for="password">Senha</label>
+    <h3 class="page-title">Informações Profissionais e de Horário</h3>
+    <div class="row">
+      <div class="col-12 user-form__group">
+        <p-iftalabel class="user-form__itens col-12 md:col-4">
+          <p-select
+          [options]="roles"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Selecione o cargo"
+          formControlName="role"
+          class="w-full"
+          />
+          <label for="role">Cargo</label>
+        </p-iftalabel>
+
+        <p-iftalabel class="user-form__itens col-12">
+          <p-select
+          [options]="dailyHours"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Selecione as horas diárias"
+          formControlName="dailyHours"
+          class="w-full"
+          />
+          <label for="dailyHours">Horas Diárias</label>
+        </p-iftalabel>
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 user-form__group">
+        <p-iftalabel class="user-form__itens col-12 ">
+          <input
+          pInputText
+          id="startTime"
+          name="startTime"
+          mask="Hh:m0"
+          placeholder="HH:MM"
+          formControlName="startTime"
+          />
+          <label for="startTime">Hora de Início</label>
+        </p-iftalabel>
+
+        <p-iftalabel class="user-form__itens col-12">
+          <input
+          pInputText
+          id="endTime"
+          name="endTime"
+          mask="Hh:m0"
+          placeholder="HH:MM"
+          formControlName="endTime"
+          />
+          <label for="endTime">Hora de Término</label>
+        </p-iftalabel>
+      </div>
+    </div>
+
+    <h3 class="page-title">Acesso e Personalização</h3>
+    <div class="row">
+      <div class="col-12 user-form__group">
+
+        <!-- TODO: Deixar desabilitado e gerar uma senha automaticamente e enviar para o email do usuário cadastrado -->
+        <p-iftalabel class="user-form__itens col-12">
           <input
             pPassword
+            type="password"
             id="password"
             name="password"
             [feedback]="false"
-            placeholder="Digite a senha"
+            [disabled]="true"
             formControlName="password"
           />
-        </div>
-      </div>
-    </div>
+          <label for="password">Senha</label>
+        </p-iftalabel>
 
-    <div class="row">
-      <div class="col-12 user-form__group">
-        <div class="user-form__itens col-12 md:col-4">
-          <label for="role">Cargo</label>
-          <p-select
-            [options]="roles"
-            optionLabel="label"
-            optionValue="value"
-            placeholder="Selecione o cargo"
-            formControlName="role"
-            class="w-full"
-          />
-        </div>
-
-        <div class="user-form__itens col-12">
-          <label for="dailyHours">Horas Diárias</label>
-          <p-select
-            [options]="dailyHours"
-            optionLabel="label"
-            optionValue="value"
-            placeholder="Selecione as horas diárias"
-            formControlName="dailyHours"
-            class="w-full"
-          />
-        </div>
-
-        <div class="user-form__itens col-12">
-          <label for="avatar">Avatar (URL)</label>
+        <!-- TODO: Enviar um avatar por padráo -->
+        <p-iftalabel class="user-form__itens col-12">
           <input
             pInputText
             id="avatar"
             name="avatar"
-            placeholder="https://..."
             formControlName="avatar"
           />
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 user-form__group">
-        <div class="user-form__itens col-12 ">
-          <label for="startTime">Hora de Início</label>
-          <input
-            pInputText
-            id="startTime"
-            name="startTime"
-            mask="Hh:m0"
-            placeholder="HH:MM"
-            formControlName="startTime"
-          />
-        </div>
-
-        <div class="user-form__itens col-12">
-          <label for="endTime">Hora de Término</label>
-          <input
-            pInputText
-            id="endTime"
-            name="endTime"
-            mask="Hh:m0"
-            placeholder="HH:MM"
-            formControlName="endTime"
-          />
-        </div>
+          <label for="avatar">Avatar</label>
+        </p-iftalabel>
       </div>
     </div>
 
     <div class="col-12 user-form__buttons">
-      <!-- <p-button
-        severity="secondary"
-        label="Cancelar"
-        icon="pi pi-times"
-        routerLink="/usuarios">
-      </p-button> -->
       <p-button
         (click)="sendUserRegister()"
         type="submit"

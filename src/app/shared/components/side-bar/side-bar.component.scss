@@ -1,10 +1,12 @@
+@use 'main' as *;
+
 .sidebar {
   position: fixed;
   left: 0;
   height: 100%;
   width: 70px;
-  background-color: #459a96;
-  color: white;
+  background: linear-gradient(300deg, #484450, #459a96 100%);
+  color: $color-text-bg-light-default;
   transition: width 0.3s ease;
   overflow: hidden;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -19,13 +21,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.sidebar.expanded .sidebar-header {
-  justify-content: flex-end;
-}
 
 .toggle-btn {
   background: transparent;
@@ -35,7 +33,7 @@
 }
 
 .toggle-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: $color-action-bg-light-hover !important;
   border: none !important;
 }
 
@@ -61,7 +59,7 @@
 }
 
 .menu li:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: $color-action-bg-light-hover;
 }
 
 .menu i {
@@ -74,3 +72,5 @@
   font-size: 15px;
   white-space: nowrap;
 }
+// color3	#459a96
+// color4	#34baab

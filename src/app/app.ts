@@ -1,9 +1,9 @@
+import { NgClass } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/components/header/header.component';
+
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { SideBarService } from './shared/services/side-bar.service';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',

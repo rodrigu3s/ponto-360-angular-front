@@ -1,5 +1,8 @@
-.app {
-  &--menu-not-condensed { margin-left: 240px }
-  &--menu-condensed { margin-left: 90px }
-  // margin-top: 60px;
+:host {
+  display: flex;
+
+  .app {
+    &--menu-not-condensed { margin-left: 240px }
+    &--menu-condensed { margin-left: 90px }
+  }
 }

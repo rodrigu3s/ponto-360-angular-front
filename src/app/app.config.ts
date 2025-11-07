@@ -1,13 +1,12 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-import Lara from '@primeuix/themes/lara';
 import { provideHttpClient } from '@angular/common/http';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideRouter } from '@angular/router';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
-import MyPreset from '../styles/my-preset';
+import { providePrimeNG } from 'primeng/config';
+
+import MyPreset from '../styles/theme/my-preset';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [

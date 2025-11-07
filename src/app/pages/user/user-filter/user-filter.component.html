@@ -1,13 +1,17 @@
 <p-card class="filter">
-  <form class="row col-12" [formGroup]="filterForm">
+  <form class="row" [formGroup]="filterForm">
     <div class="filter__name col-12 col-md-3">
-      <label for="username">Nome</label>
-      <input [pKeyFilter]="regexAlphaNumAccents" maxlength="255" pInputText id="username" aria-describedby="username-help" formControlName="name"/>
+      <p-iftalabel>
+        <input [pKeyFilter]="regexAlphaNumAccents" maxlength="255" pInputText id="username" aria-describedby="username-help" formControlName="name"/>
+        <label for="username">Nome</label>
+      </p-iftalabel>
     </div>
 
     <div class="filter__cpf col-12 col-md-3">
-      <label for="cpf">CPF</label>
-      <input pInputText aria-describedby="cpf-help" placeholder="000.000.000-00" formControlName="cpf" />
+      <p-iftalabel>
+        <input pInputText aria-describedby="cpf-help" formControlName="cpf" />
+        <label for="cpf">CPF</label>
+      </p-iftalabel>
     </div>
 
     <div class="filter__buttons col-md-6">

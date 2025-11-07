@@ -2,14 +2,16 @@ import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { IftaLabelModule } from 'primeng/iftalabel';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { KeyFilterModule } from 'primeng/keyfilter';
+
 import { UserFilter } from '../../../shared/interfaces';
 
 @Component({
   selector: 'app-user-filter',
-  imports: [ CardModule, InputTextModule, ButtonModule, InputMaskModule, KeyFilterModule, ReactiveFormsModule],
+  imports: [ CardModule, InputTextModule, IftaLabelModule, ButtonModule, InputMaskModule, KeyFilterModule, ReactiveFormsModule],
   templateUrl: './user-filter.component.html',
   styleUrl: './user-filter.component.scss',
 })

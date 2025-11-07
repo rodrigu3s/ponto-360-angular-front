@@ -1,20 +1,29 @@
 <div class="sidebar" [class.expanded]="expanded">
-
   @if (!expanded) {
     <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-      <img src="images\logo-individual.png" alt="logo" width="70px" />
+      <img src="images\logo-individual-branca.png" alt="logo" width="70px" />
     </div>
   }
+
   <div class="sidebar-header">
     @if (!expanded) {
       <button pButton icon="pi pi-bars" class="toggle-btn" (click)="toggleSidebar()"></button>
     } @else {
-      <img src="images\logo-teste.png" alt="logo" width="150px" />
+      <img src="images\logo-branca-sem-slogan.png" alt="logo" width="150px" />
       <button pButton icon="pi pi-times" class="toggle-btn" (click)="toggleSidebar()"></button>
     }
   </div>
 
   <ul class="menu">
+    <li routerLink="/bater-ponto" pRipple pTooltip="Bater Ponto" tooltipPosition="right">
+      <i class="pi pi-clock"></i>
+      @if (expanded) {
+        <span>Bater Ponto</span>
+      }
+    </li>
+
+    <br>
+
     <li routerLink="/home" pRipple pTooltip="Principal" tooltipPosition="right">
       <i class="pi pi-home"></i>
       @if (expanded) {
@@ -27,10 +36,10 @@
         <span>Usuários</span>
       }
     </li>
-    <li routerLink="/bater-ponto" pRipple pTooltip="Bater Ponto" tooltipPosition="right">
-      <i class="pi pi-clock"></i>
+    <li routerLink="/usuarios" pRipple pTooltip="Histórico de pontos" tooltipPosition="right">
+      <i class="pi pi-history"></i>
       @if (expanded) {
-        <span>Bater Ponto</span>
+        <span>Histórico de pontos</span>
       }
     </li>
   </ul>

@@ -31,8 +31,13 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/styles/theme-p360.scss"
-            ]
+              "src/styles/theme/theme-p360.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            }
           },
           "configurations": {
             "production": {

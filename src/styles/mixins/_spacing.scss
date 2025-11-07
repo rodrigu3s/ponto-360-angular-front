@@ -1,0 +1,94 @@
+@use 'sass:map';
+
+$spacing: (
+  '01': 2px,
+  '02': 4px,
+  '03': 8px,
+  '04': 10px,
+  '05': 16px,
+  '06': 24px,
+  '07': 32px,
+  '08': 64px,
+  '09': 128px,
+);
+
+@function spacing($size){
+  @return map.get($spacing, $size);
+}
+
+/*
+  -inline (espaçamento horizontal / margin-left e margin-right)
+  -stack (espaçamento vertical / margin-top e margin-bottom)
+  -inset (padding geral)
+  -inset-squish (padding vertical e horizontal definidos separadamente)
+  -inset-stretch (idem, mas invertendo as dimensões)
+*/
+$spacings: (
+  inline: (
+    xx-small: spacing('01'),
+    x-small: spacing('02'),
+    inline-06: 6px,
+    small: spacing('03'),
+    medium: spacing('04'),
+    inline-12: 12px,
+    inline-14: 14px,
+    big: spacing('05'),
+    inline-18: 18px,
+    inline-22: 22px,
+    x-big: spacing('06'),
+    xx-big: spacing('07'),
+    xxx-big: spacing('08'),
+  ),
+  stack: (
+    xxx-small: spacing('02'),
+    stack-06: 6px,
+    xx-small: spacing('03'),
+    x-small: spacing('04'),
+    stack-12: 12px,
+    stack-14: 14px,
+    small: spacing('05'),
+    stack-18: 18px,
+    stack-22: 22px,
+    medium: spacing('06'),
+    stack-26: 26px,
+    big: spacing('07'),
+    x-big: spacing('08'),
+  ),
+  inset: (
+    x-small: spacing('02'),
+    small: spacing('03'),
+    medium: spacing('04'),
+    big: spacing('05'),
+    x-big: spacing('06'),
+    xx-big: spacing('07'),
+  ),
+  inset-squish: (
+    small: spacing('02') spacing('03'),
+    big: spacing('04') spacing('05'),
+    xx-big: spacing('04') spacing('07'),
+  ),
+  inset-stretch: (
+    small: spacing('03') spacing('02'),
+    big: spacing('05') spacing('04'),
+  ),
+);
+
+@function spacing-inline($size) {
+  @return map.get( map.get($spacings, inline), $size );
+}
+
+@function spacing-stack($size) {
+  @return map.get( map.get($spacings, stack), $size );
+}
+
+@function spacing-inset($size) {
+  @return map.get( map.get($spacings, inset), $size );
+}
+
+@function spacing-inset-squish($size) {
+  @return map.get( map.get($spacings, inset-squish), $size );
+}
+
+@function spacing-inset-stretch($size) {
+  @return map.get( map.get($spacings, inset-stretch), $size );
+}
