@@ -16,17 +16,15 @@ import { USER_ROLES } from '../../../shared/consts/user-roles';
 import { USER_DAILY_HOURS } from '../../../shared/consts/user-daily-hours';
 import { User } from '../../../shared/interfaces';
 import { MessageService } from 'primeng/api';
-import { Toast, ToastModule } from 'primeng/toast';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IftaLabelModule } from 'primeng/iftalabel';
 
 @Component({
   selector: 'app-user-register',
   standalone: true,
-  imports: [ RouterModule, IftaLabelModule, InputTextModule, SelectModule , PasswordModule, InputNumberModule, ButtonModule, CardModule, KeyFilterModule, ReactiveFormsModule, NgxMaskDirective, ToastModule, Toast ],
+  imports: [ RouterModule, IftaLabelModule, InputTextModule, SelectModule , PasswordModule, InputNumberModule, ButtonModule, CardModule, KeyFilterModule, ReactiveFormsModule, NgxMaskDirective ],
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.scss'],
-  providers: [MessageService]
 })
 export class UserRegisterComponent implements OnDestroy, OnInit {
 

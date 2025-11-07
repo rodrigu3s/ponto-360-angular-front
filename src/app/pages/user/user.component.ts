@@ -11,15 +11,13 @@ import { UserService } from '../../shared/services/http/user.service';
 import { UserFilter } from '../../shared/interfaces';
 import { identity, pickBy } from 'lodash';
 import { MessageService } from 'primeng/api';
-import { Toast, ToastModule } from 'primeng/toast';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
-  imports: [ CardModule, UserFilterComponent, UserListComponent, ButtonModule, RouterModule, ToastModule, Toast ],
+  imports: [ CardModule, UserFilterComponent, UserListComponent, ButtonModule, RouterModule ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
-  providers: [MessageService]
 })
 export class UserComponent implements OnInit, OnDestroy  {
 

@@ -7,6 +7,7 @@ import { providePrimeNG } from 'primeng/config';
 
 import MyPreset from '../styles/theme/my-preset';
 import { routes } from './app.routes';
+import { MessageService } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
+    MessageService,
     provideAnimationsAsync(),
     provideEnvironmentNgxMask(),
     providePrimeNG({
