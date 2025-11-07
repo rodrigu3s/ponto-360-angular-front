@@ -7,6 +7,7 @@ import { providePrimeNG } from 'primeng/config';
 import Lara from '@primeuix/themes/lara';
 import { provideHttpClient } from '@angular/common/http';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import MyPreset from '../styles/my-preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,10 +19,9 @@ export const appConfig: ApplicationConfig = {
     provideEnvironmentNgxMask(),
     providePrimeNG({
         theme: {
-          preset: Lara,
+          preset: MyPreset,
           options: {
-            darkModeSelector: false,
-            cssLayer: false
+            darkModeSelector: false
           }
         }
     })

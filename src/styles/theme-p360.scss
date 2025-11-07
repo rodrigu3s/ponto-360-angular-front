@@ -1,0 +1,37 @@
+:root {
+  /* PRIMARY BRAND */
+  --p-primary-50:   #e4f5f2;
+  --p-primary-100:  #d2f0ea;
+  --p-primary-200:  #a9e7db;
+  --p-primary-300:  #72d7c5;
+  --p-primary-400:  #4fc8b6;
+  --p-primary-500:  #34baab; /* principal -> color4 */
+  --p-primary-600:  #459a96; /* hover -> color3 */
+  --p-primary-700:  #466067; /* pressed/active -> color2 */
+  --p-primary-800:  #3d5257;
+  --p-primary-900:  #2c3a3d;
+
+  /* TEXT */
+  --p-text-color: #484450; /* color1 */
+  --p-text-muted-color: #c4c8c5; /* color5 */
+
+  /* SURFACE */
+  --p-surface-0: #ffffff;
+  --p-surface-50: #fafafa;
+  --p-surface-100: #f5f5f5;
+  --p-surface-200: #eeeeee;
+  --p-surface-300: #e0e0e0;
+  --p-surface-400: #bdbdbd;
+  --p-surface-500: #9e9e9e;
+  --p-surface-600: #757575;
+  --p-surface-700: #616161;
+  --p-surface-800: #484450; /* cor base escura: color1 */
+  --p-surface-900: #2b2b2b;
+
+  /* BORDER / DIVIDER */
+  --p-content-border-color: #c4c8c5; /* color5 */
+
+  /* STATES */
+  --p-highlight-bg: var(--p-primary-100);
+  --p-highlight-text-color: var(--p-text-color);
+}

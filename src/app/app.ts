@@ -7,7 +7,7 @@ import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, SideBarComponent, NgClass],
+  imports: [RouterOutlet, SideBarComponent, NgClass],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

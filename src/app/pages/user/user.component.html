@@ -7,14 +7,12 @@
     </div>
 
     <div class="user__header--actions">
-      <p-button routerLink="/adicionar-usuarios" icon="pi pi-plus" label="Adicionar Usuários" variant="outlined" severity="info" />
+      <p-button routerLink="/adicionar-usuarios" icon="pi pi-plus" label="Adicionar Usuários" variant="outlined" />
     </div>
   </div>
 </div>
 
 <app-user-filter (filterEvent)="doFilterUsers($event)"></app-user-filter>
 
-<app-user-list
-  [dataSource]="dataSource"
-  (removeUserEvent)="onRemoveUser($event)"
-  ></app-user-list>
+<app-user-list [dataSource]="dataSource" (removeUserEvent)="onRemoveUser($event)">
+</app-user-list>

@@ -7,12 +7,12 @@
 
     <div class="filter__cpf col-12 col-md-3">
       <label for="cpf">CPF</label>
-      <input pInputText aria-describedby="cpf-help" placeholder="999.999.999-99" formControlName="cpf" />
+      <input pInputText aria-describedby="cpf-help" placeholder="000.000.000-00" formControlName="cpf" />
     </div>
 
     <div class="filter__buttons col-md-6">
-      <p-button label="Filtrar" icon="pi pi-search" severity="info" (click)="doFilter()"/>
-      <p-button label="Limpar Filtro" icon="pi pi-times" severity="danger" (click)="clearFilter()"/>
+      <p-button label="Filtrar" icon="pi pi-search" (click)="doFilter()"/>
+      <p-button label="Limpar Filtro" icon="pi pi-times" severity="secondary" (click)="clearFilter()"/>
     </div>
   </form>
 </p-card>

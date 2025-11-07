@@ -10,7 +10,7 @@ import { environment } from '../../../../environment/environment.development';
 export class UserService {
 
   private readonly API_URL = `${environment.API_URL}`;
-  private readonly CONTEXT_PATH  = '/user'
+  private readonly CONTEXT_PATH  = '/users'
 
   constructor(private http: HttpClient) {}
 

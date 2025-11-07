@@ -60,7 +60,7 @@
             id="phone"
             name="phone"
             mask="(99) 99999-9999"
-            placeholder="(00) 00000-0000"
+            placeholder="(00) 90000-0000"
             formControlName="phone"
           >
         </div>
@@ -157,17 +157,16 @@
     </div>
 
     <div class="col-12 user-form__buttons">
-      <p-button
+      <!-- <p-button
+        severity="secondary"
         label="Cancelar"
-        severity="danger"
         icon="pi pi-times"
         routerLink="/usuarios">
-      </p-button>
+      </p-button> -->
       <p-button
         (click)="sendUserRegister()"
         type="submit"
         label="Salvar"
-        severity="info"
         icon="pi pi-check">
       </p-button>
     </div>
