@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { IconFieldModule } from 'primeng/iconfield';
 import { TableModule } from 'primeng/table';
 import { User } from '../../../shared/interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -21,8 +22,16 @@ export class UserListComponent {
 
   customers: User[] = [];
 
-  removeUser(cpf: string):void{
+  private router = inject(Router);
+
+  removeUser(cpf: string): void {
    this.removeUserEvent.emit(cpf)
+  }
+
+  editUser(user: User): void {
+    this.router.navigate(['/editar-usuario'], {
+      state: { user: user}
+    });
   }
 
 

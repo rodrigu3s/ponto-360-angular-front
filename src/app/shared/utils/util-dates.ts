@@ -12,6 +12,16 @@ export class UtilDates {
     return `${year}-${month}-${day}`;
   }
 
+  static unformatDateString(formattedDate: string): string {
+    if (!formattedDate || formattedDate.length !== 10) {
+      return '';
+    }
+
+    const [year, month, day] = formattedDate.split('-');
+
+    return `${day}${month}${year}`;
+  }
+
   static formatHourString(hourString: string): string {
     if (!hourString) {
       return '';

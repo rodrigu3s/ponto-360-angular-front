@@ -1,3 +1,4 @@
+import { identity, pickBy } from 'lodash';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -32,16 +33,27 @@ export class UserRegisterComponent implements OnDestroy, OnInit {
   dailyHours = USER_DAILY_HOURS;
   regexAlphaNumAccents = /^[a-zA-Z0-9À-ÿ ]*$/;
   registerForm!: FormGroup;
+  isEditUser: boolean = false;
+
 
   private sub = new SubSink();
+  private user!: User;
 
   private formBuilder = inject(FormBuilder);
   private userService = inject(UserService);
   private messageService = inject(MessageService);
   private router= inject(Router);
 
+  constructor(){
+    this.user = this.router.getCurrentNavigation()?.extras?.state?.['user'];
+  }
+
   ngOnInit(): void {
-    this.registerForm = this.builderForm()
+    this.registerForm = this.builderForm();
+    if(this.user){
+      this.isEditUser = true;
+      this.setUserForm();
+    }
   }
 
   ngOnDestroy(): void {
@@ -50,12 +62,19 @@ export class UserRegisterComponent implements OnDestroy, OnInit {
 
   sendUserRegister(): void {
     if(this.registerForm.valid) {
-      const formValeu = { ...this.registerForm.value };
-      this.validateBirthday(formValeu);
-      this.validateHour(formValeu);
-      this.sub.sink = this.userService.sendUsers(formValeu).subscribe({
+      let formValue = {
+        id: this.isEditUser ? this.user.cpf : '',
+        ...this.registerForm.value
+      };
+      this.validateBirthday(formValue);
+      this.validateHour(formValue);
+      const method = this.isEditUser ? 'putUser': 'sendUsers';
+      formValue = pickBy(formValue, identity) as User;
+      this.sub.sink = this.userService[method](formValue).subscribe({
         next: () => {
-          this.messageService.add({ severity: 'success', summary: 'Successo', detail: 'Usuário Cadastrado com Sucesso!' });
+          this.messageService.add({ severity: 'success', summary: 'Successo', detail:
+            this.isEditUser? 'Usuário editado com sucesso!' : 'Usuário Cadastrado com Sucesso!'
+           })
           this.router.navigate(['/usuarios']);
         },
         error: (err: HttpErrorResponse) => {
@@ -63,6 +82,17 @@ export class UserRegisterComponent implements OnDestroy, OnInit {
         }
       });
     }
+  }
+
+  private setUserForm(): void {
+    this.registerForm.patchValue({
+      ...this.user,
+      dateBirthday: this.reverteValidateDate(this.user.dateBirthday)
+    })
+  }
+
+  private reverteValidateDate(date: string): string {
+    return UtilDates.unformatDateString(date)
   }
 
   private validateBirthday(dateString: User): void {

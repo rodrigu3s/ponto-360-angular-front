@@ -23,7 +23,7 @@
               <td>{{ customer.email }}</td>
               <td>
                 <div class="user-list__buttons">
-                  <p-button icon="pi pi-pencil" styleClass="p-button-text btn-edit" aria-label="Edit"></p-button>
+                  <p-button icon="pi pi-pencil" styleClass="p-button-text btn-edit" aria-label="Edit" (click)="editUser(customer)"></p-button>
                   <p-button icon="pi pi-times" styleClass="p-button-text btn-delete" aria-label="Delete" severity="danger" (click)="removeUser(customer.cpf)"></p-button>
                 </div>
               </td>

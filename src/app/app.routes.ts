@@ -15,7 +15,7 @@ export const routes: Routes = [
 
   { path: 'adicionar-usuarios', component: UserRegisterComponent },
 
-  { path: 'adicionar-usuarios/:cpf', component: UserRegisterComponent },
+  { path: 'editar-usuario', component: UserRegisterComponent },
 
   { path: 'bater-ponto', component: ClockInComponent },
 

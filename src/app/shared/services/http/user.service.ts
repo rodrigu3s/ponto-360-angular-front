@@ -14,7 +14,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(filter: Partial<UserFilter>): Observable<ResponseAPI<User[]>> {
+  getUsers(filter: UserFilter): Observable<ResponseAPI<User[]>> {
     let params = new HttpParams({
       fromObject: { ...filter }
     })
@@ -25,15 +25,15 @@ export class UserService {
     return this.http.get<ResponseAPI<User>>(`${this.API_URL}${this.CONTEXT_PATH}/${id}`);
   }
 
-  sendUsers(params: Partial<User>): Observable<ResponseAPI<User[]>> {
-    return this.http.post<ResponseAPI<User[]>>(`${this.API_URL}${this.CONTEXT_PATH}`, params);
+  sendUsers(params: User): Observable<ResponseAPI<User>> {
+    return this.http.post<ResponseAPI<User>>(`${this.API_URL}${this.CONTEXT_PATH}`, params);
   }
 
   deleteUser(id: string): Observable<void>{
     return this.http.delete<void>(`${this.API_URL}${this.CONTEXT_PATH}/${id}`)
   }
 
-  putUserById(id: string, params: User):Observable<ResponseAPI<User>> {
-    return this.http.put<ResponseAPI<User>>(`${this.API_URL}${this.CONTEXT_PATH}/${id}`, params)
+  putUser( params: User):Observable<ResponseAPI<User>> {
+    return this.http.put<ResponseAPI<User>>(`${this.API_URL}${this.CONTEXT_PATH}/${params.id}`, params)
   }
 }

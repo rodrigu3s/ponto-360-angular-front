@@ -1,8 +1,13 @@
 <div class="row col-12">
   <div class="user-register__header">
     <div class="user-register__header--title">
-      <h2 class="page-title">Cadastro de Usuários</h2>
-      <p>Adicione usuários, preencha os campos obrigatórios</p>
+      @if(this.isEditUser){
+        <h2 class="page-title">Edição de Usuário</h2>
+        <p>Edite o usuário, preencha os campos obrigatórios</p>
+      }@else {
+        <h2 class="page-title">Cadastro de Usuários</h2>
+        <p>Adicione usuários, preencha os campos obrigatórios</p>
+      }
     </div>
   </div>
 </div>
@@ -143,7 +148,6 @@
             id="password"
             name="password"
             [feedback]="false"
-            [disabled]="true"
             formControlName="password"
           />
           <label for="password">Senha</label>
