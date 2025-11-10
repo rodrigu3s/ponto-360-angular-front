@@ -2,6 +2,11 @@
   display: flex;
 
   .app {
+
+    &__content{
+      width: 100%;
+    }
+
     &--menu-not-condensed { margin-left: 240px }
     &--menu-condensed { margin-left: 90px }
   }

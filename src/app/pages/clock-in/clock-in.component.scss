@@ -1,0 +1,77 @@
+.clock-in {
+
+  &__title {
+    padding: 20px;
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &__notification {
+      padding: 20px 0;
+    }
+
+    &__user-information {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0 ;
+    }
+
+    &__user-information img {
+      margin-bottom: 10px;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    &___date-time {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__current-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    &__current-date span {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    &__btn-profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__card-clock-in {
+    display: flex;
+    height: 100%;
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    &__buttons {
+      padding: 20px;
+    }
+  }
+
+}
+
+::ng-deep .clock-in__card-clock-in__btn .p-button {
+  width: 100% !important;
+  display: block;
+}

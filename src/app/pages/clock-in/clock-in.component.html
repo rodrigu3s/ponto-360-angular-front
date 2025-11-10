@@ -1,1 +1,169 @@
-<p>clock-in.component works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 clock-in__title">
+      <h2 class="">Registrar ponto</h2>
+    </div>
+
+    <div class="col-6">
+      <p-card class="clock-in__card">
+        <div class="clock-in__card__notification">
+          <h3>Ponto Registrado com sucesso!</h3>
+        </div>
+        <div class="clock-in__card__user-information">
+          <img src="images\foto-perfil.png" alt="foto-perfil" width="200px">
+          <p>Marcia Sousar</p>
+          <p>Marketting Conteúdo</p>
+        </div>
+        <div class="clock-in__card__date-time">
+          <div class="clock-in__card__current-date">
+            <p>Data e Hora Atual</p>
+            <div>
+              <span>{{ currentDate }}</span>
+              <span>{{ currentTime }}</span>
+              <span>{{ currentGMT }}</span>
+            </div>
+          </div>
+
+          <div class="clock-in__card__btn-profile">
+            <p-button routerLink="/home" label="Ir para o meu perfil" variant="outlined" />
+          </div>
+        </div>
+      </p-card>
+    </div>
+
+    <div class="col-6">
+      <p-card class="clock-in__card-clock-in">
+        <div class="clock-in__card-clock-in__info">
+          <div>
+            <p>Último Registro</p>
+            <p>09/08/2022</p>
+          </div>
+          <div>
+            <p-button label="Ver todos" variant="text" severity="success" />
+          </div>
+        </div>
+        <hr>
+        <div class="clock-in__card-clock-in__buttons">
+          <p-button class="clock-in__card-clock-in__btn" label="Bater Ponto" (click)="sendTimesTamp()"/>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row mb-4">
+  <div class="col-12">
+    <h2 class="page-title">Registrar ponto</h2>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6 col-lg-5 mb-4">
+    <p-card>
+      <div class="text-center">
+        <h3 class="text-success mb-4">Ponto registrado com sucesso!</h3>
+        <img
+          src="images/foto-perfil.png"
+          alt="foto de perfil"
+          class="rounded-circle mb-3 profile-photo"
+        />
+        <p class="fw-semibold mb-1">Marcia Sousa</p>
+        <p class="text-muted mb-3">Marketing Conteúdo</p>
+
+        <div class="mb-3">
+          <p class="mb-0 text-muted">Data e hora atual:</p>
+          <h2 class="fw-bold mb-0">09/08/2022 &nbsp; 22:20</h2>
+          <small class="text-muted">GMT-03:00</small>
+        </div>
+
+        <p-button
+          label="Ir para o meu perfil"
+          icon="pi pi-user"
+          styleClass="p-button-outlined"
+        ></p-button>
+      </div>
+    </p-card>
+  </div>
+
+
+  <div class="col-md-6 col-lg-4 mb-4">
+    <p-card>
+      <div class="text-center">
+        <p class="fw-semibold mb-1">Último registro</p>
+        <p class="text-muted mb-4">09/08/2022 às 17:22</p>
+        <p-button
+          label="Bater ponto"
+          icon="pi pi-clock"
+          styleClass="p-button-success w-100"
+        ></p-button>
+      </div>
+    </p-card>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,7 @@
-@import "primeicons/primeicons.css";
-@import "bootstrap/dist/css/bootstrap-grid.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-html, body {
-  height: 100%;
-}
+@use "primeicons/primeicons.css";
+@use "bootstrap/dist/css/bootstrap-grid.min.css";
+@use "../src/styles/base/reset";
 
 body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
